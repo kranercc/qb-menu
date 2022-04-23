@@ -23,9 +23,28 @@ const openMenu = (data = null) => {
     });
 };
 
+//create a default button for the menu testing on html page
+const debug_createDefaultButton = () => {
+    let html = "";
+    html += getButtonRender("QBCORE DEFAULT BUTTON FOR DESIGN TITLE", "THIS IS A LONG DESCRIPTION", 0, false, false);
+    
+    $("#buttons").html(html);
+
+    $('.button').click(function() {
+        console.log("clicked")
+    });
+};
+
+// setTimeout(() => {
+//     createDefaultButton();
+    
+// }, 1000);
+
 const getButtonRender = (header, message = null, id, isMenuHeader, isDisabled) => {
     return `
     <div class="${isMenuHeader ? "title" : "button"} ${isDisabled ? "disabled" : ""}" id="${id}">
+                <div class="button_bg"></div>
+        
         <div class="header">${header}</div>
         ${message ? `<div class="text">${message}</div>` : ""}
     </div>
